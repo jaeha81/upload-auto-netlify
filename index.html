@@ -3,71 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Space819 자동화 시스템 웹사이트">
   <title>Space819 자동화 시스템</title>
   <style>
+    :root {
+      --bg-color: #f2f2f2;
+      --text-color: #333;
+      --card-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --card-bg: #1e1e1e;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
+      background: var(--bg-color);
+      color: var(--text-color);
       font-family: 'Segoe UI', sans-serif;
-      color: #333;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
+      background-color: var(--card-bg);
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .left {
       display: flex;
       align-items: center;
-      background-color: #444;
-      padding: 10px 20px;
     }
 
     header img {
-      height: 40px;
-      margin-right: 10px;
+      height: 48px;
+      margin-right: 12px;
     }
 
     header h1 {
-      color: white;
       font-size: 20px;
       margin: 0;
     }
 
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--text-color);
+      border-radius: 5px;
+      color: var(--text-color);
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
     main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 160px);
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 100px 20px;
+      max-width: 600px;
+      width: 100%;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
     }
 
-    p {
-      font-size: 18px;
+    .card p {
+      font-size: 16px;
       line-height: 1.6;
     }
 
-    .status {
-      margin-top: 40px;
-      font-size: 16px;
-      color: #888;
+    .emoji {
+      font-size: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border-top: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="1752644223722.png" alt="로고" />
-    <h1>Space819</h1>
+    <div class="left">
+      <img src="1752644223722.png" alt="Space819 Logo">
+      <h1>Space819 자동화 시스템</h1>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 다크모드</button>
   </header>
 
   <main>
-    <h2>✨ Space819 자동화 웹사이트 ✨</h2>
-    <p>이 페이지는 GPT & Make.com 기반 자동화 시스템입니다.</p>
-    <p>✅ YouTube 자동 업로드<br>✅ Google Sheet 기록<br>✅ 알림 자동 전송</p>
-
-    <div class="status">⚡ 현재 서버는 정상 작동 중입니다.</div>
+    <div class="card">
+      <h2>✨ Space819 자동화 웹사이트 ✨</h2>
+      <p>✅ 이 페이지는 GPT & Make.com 기반의 자동화 시스템입니다.</p>
+      <p>✅ YouTube 자동 업로드<br>✅ Google Sheet 기록<br>✅ 카카오톡 알림 자동 발송</p>
+      <p class="emoji">⚡ 현재 서버는 정상 작동 중이며, 자동화 시스템이 활성화되어 있습니다.</p>
+    </div>
   </main>
 
+  <footer>
+    좋은 디자인은 소통에서 비롯됩니다. – Space819<br>
+    ⓒ 2025 Space819 Interior Studio. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    }
+  </script>
 </body>
 </html>
